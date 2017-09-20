@@ -10,7 +10,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def index():
-	return Autenticate()
+	return '<h1> Deployed </h1>'
 @app.route('/Authenticate')
 def Authenticate():
 	username = request.args.get('Username')
