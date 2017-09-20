@@ -10,7 +10,7 @@ app = Flask(__name__)
 #app.config['MYSQL_PASSWORD'] = 'chelamela'
 #app.config['MYSQL_DB'] = 'id2597668_vicky'
 #mysql.init_app(app)
-db = MySQLdb.connect(host='databases.000webhost.com',user='id2597668_saivicky',passwd='chelamela',db='id2597668_vicky')
+#db = MySQLdb.connect(host='databases.000webhost.com',user='id2597668_saivicky',passwd='chelamela',db='id2597668_vicky')
 
 @app.route('/')
 def index():
@@ -25,8 +25,8 @@ def Authenticate():
 		return '<h1>Wrong username</h1>'
 	else :
 		return render_template('index.html')
-		
+"""	
 
-if __name__ == "__main__":
-    app.run()
-"""
+#if __name__ == "__main__":
+#   app.run()
+
