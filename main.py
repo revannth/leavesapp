@@ -1,5 +1,7 @@
-from flask import Flask,request
-from flask_mysqldb import MySQL 
+import pymysql
+pymysql.install_as_MySQLdb()
+from flask import Flask,request 
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -12,11 +14,12 @@ mysql.init_app(app)
 @app.route('/')
 def index():
 	return '<h1> Deployed </h1>'
+
 @app.route('/Authenticate')
 def Authenticate():
 	username = request.args.get('Username')
 	password = request.args.get('Password')
-	cursor = mysql.connect().cursor()
+	cursor = mysql.connection.cursor()
 	cursor.execute("SELECT* FROM l_available")
 	data = cursor.fetchone()
 	if data is None :
