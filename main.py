@@ -1,7 +1,8 @@
 from flask import Flask,request
 from flask_mysqldb import MySQL 
-mysql = mySQL()
+
 app = Flask(__name__)
+mysql = MySQL(app)
 app.config['MYSQL_HOST'] = 'databases.000webhost.com'
 app.config['MYSQL_USER'] = 'id2597668_saivicky'
 app.config['MYSQL_PASSWORD'] = 'chelamela'
@@ -20,6 +21,6 @@ def Authenticate():
 	data = cursor.fetchone()
 	if data is None :
 		return "Wrong username"
-	else
+	else :
 		return data
 
