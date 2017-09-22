@@ -21,13 +21,13 @@ def index():
 def Authenticate():
 
 	cursor = mysql.connect.cursor()
-	cursor.execute("SELECT* FROM l_available")
+	cursor.execute("SELECT* FROM employee WHERE department='CSE'")
 	data = cursor.fetchall()
 	if data is None :
 		return '<h1>Wrong username</h1>'
 	else :
 		return render_template('index.html',data=data)
 	
-if __name__ == "__main__":
+'''if __name__ == "__main__":
 	app.run()
-
+'''
