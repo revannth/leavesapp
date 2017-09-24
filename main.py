@@ -46,7 +46,7 @@ def Authenticate():
 		return redirect(url_for('index'))
 	else:
 		error = "Invalid User Name or Password"
-	return render_template('login.html')
+	return render_template('login.html',error=error)
 
 if __name__ == "__main__":
 	app.run()
