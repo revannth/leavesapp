@@ -1,0 +1,101 @@
+2017-09-22T17:34:53.740993+00:00 app[web.1]: [2017-09-22 17:34:53 +0000] [4] [INFO] Listening at: http://0.0.0.0:57383 (4)
+2017-09-22T17:34:53.741113+00:00 app[web.1]: [2017-09-22 17:34:53 +0000] [4] [INFO] Using worker: sync
+2017-09-22T17:34:53.746563+00:00 app[web.1]: [2017-09-22 17:34:53 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-22T17:34:53.807587+00:00 app[web.1]: [2017-09-22 17:34:53 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-22T17:34:55.026173+00:00 heroku[web.1]: State changed from starting to up
+2017-09-22T18:08:41.616993+00:00 heroku[web.1]: Idling
+2017-09-22T18:08:41.617612+00:00 heroku[web.1]: State changed from up to down
+2017-09-22T18:08:42.328989+00:00 app[web.1]: [2017-09-22 18:08:42 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-22T18:08:42.329012+00:00 app[web.1]: [2017-09-22 18:08:42 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-22T18:08:42.332994+00:00 app[web.1]: [2017-09-22 18:08:42 +0000] [4] [INFO] Handling signal: term
+2017-09-22T18:08:42.342329+00:00 app[web.1]: [2017-09-22 18:08:42 +0000] [4] [INFO] Shutting down: Master
+2017-09-22T18:08:42.316368+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-22T18:08:42.447335+00:00 heroku[web.1]: Process exited with status 0
+2017-09-24T13:28:58.107831+00:00 heroku[web.1]: Unidling
+2017-09-24T13:28:58.108338+00:00 heroku[web.1]: State changed from down to starting
+2017-09-24T13:29:01.676196+00:00 heroku[web.1]: Starting process with command `gunicorn main:app`
+2017-09-24T13:29:04.955531+00:00 app[web.1]: [2017-09-24 13:29:04 +0000] [4] [INFO] Starting gunicorn 19.7.1
+2017-09-24T13:29:04.957623+00:00 app[web.1]: [2017-09-24 13:29:04 +0000] [4] [INFO] Listening at: http://0.0.0.0:27858 (4)
+2017-09-24T13:29:04.957732+00:00 app[web.1]: [2017-09-24 13:29:04 +0000] [4] [INFO] Using worker: sync
+2017-09-24T13:29:04.990856+00:00 app[web.1]: [2017-09-24 13:29:04 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-24T13:29:05.019325+00:00 app[web.1]: [2017-09-24 13:29:05 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-24T13:29:06.284274+00:00 heroku[web.1]: State changed from starting to up
+2017-09-24T13:29:07.204714+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=12f3b356-f8fd-4f1e-8406-da885f011112 fwd="103.195.92.133" dyno=web.1 connect=1ms service=5ms status=200 bytes=179 protocol=https
+2017-09-24T13:29:16.924977+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=7e59a58d-336d-447d-bbb1-33f283f464d9 fwd="103.195.92.133" dyno=web.1 connect=1ms service=83ms status=200 bytes=5902 protocol=https
+2017-09-24T14:02:28.651791+00:00 heroku[web.1]: Idling
+2017-09-24T14:02:28.652282+00:00 heroku[web.1]: State changed from up to down
+2017-09-24T14:02:29.378763+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-24T14:02:29.402990+00:00 app[web.1]: [2017-09-24 14:02:29 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-24T14:02:29.403528+00:00 app[web.1]: [2017-09-24 14:02:29 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-24T14:02:29.410303+00:00 app[web.1]: [2017-09-24 14:02:29 +0000] [4] [INFO] Handling signal: term
+2017-09-24T14:02:29.426059+00:00 app[web.1]: [2017-09-24 14:02:29 +0000] [4] [INFO] Shutting down: Master
+2017-09-24T14:02:29.602080+00:00 heroku[web.1]: Process exited with status 0
+2017-09-24T14:16:02.335255+00:00 heroku[web.1]: State changed from down to starting
+2017-09-24T14:16:31.869445+00:00 heroku[web.1]: Starting process with command `gunicorn main:app`
+2017-09-24T14:16:35.239790+00:00 app[web.1]: [2017-09-24 14:16:35 +0000] [4] [INFO] Listening at: http://0.0.0.0:50825 (4)
+2017-09-24T14:16:35.239048+00:00 app[web.1]: [2017-09-24 14:16:35 +0000] [4] [INFO] Starting gunicorn 19.7.1
+2017-09-24T14:16:35.239925+00:00 app[web.1]: [2017-09-24 14:16:35 +0000] [4] [INFO] Using worker: sync
+2017-09-24T14:16:35.247248+00:00 app[web.1]: [2017-09-24 14:16:35 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-24T14:16:35.288959+00:00 app[web.1]: [2017-09-24 14:16:35 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-24T14:16:35.757308+00:00 heroku[web.1]: State changed from starting to up
+2017-09-24T14:16:36.995170+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=003f213f-3bc2-46cb-824c-3103a36b66c4 fwd="103.195.92.133" dyno=web.1 connect=1ms service=68ms status=400 bytes=347 protocol=https
+2017-09-24T14:16:38.061638+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=49d848ca-9c76-453a-bfa7-052d1b823b2b fwd="103.195.92.133" dyno=web.1 connect=1ms service=8ms status=200 bytes=179 protocol=https
+2017-09-24T14:27:49.549980+00:00 heroku[web.1]: Restarting
+2017-09-24T14:27:49.550720+00:00 heroku[web.1]: State changed from up to starting
+2017-09-24T14:27:50.413890+00:00 app[web.1]: [2017-09-24 14:27:50 +0000] [4] [INFO] Shutting down: Master
+2017-09-24T14:27:50.393066+00:00 app[web.1]: [2017-09-24 14:27:50 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-24T14:27:50.394068+00:00 app[web.1]: [2017-09-24 14:27:50 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-24T14:27:50.408280+00:00 app[web.1]: [2017-09-24 14:27:50 +0000] [4] [INFO] Handling signal: term
+2017-09-24T14:27:50.379660+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-24T14:27:50.516602+00:00 heroku[web.1]: Process exited with status 0
+2017-09-24T14:28:06.923554+00:00 heroku[web.1]: Starting process with command `gunicorn main:app`
+2017-09-24T14:28:10.289004+00:00 app[web.1]: [2017-09-24 14:28:10 +0000] [4] [INFO] Starting gunicorn 19.7.1
+2017-09-24T14:28:10.289589+00:00 app[web.1]: [2017-09-24 14:28:10 +0000] [4] [INFO] Listening at: http://0.0.0.0:29822 (4)
+2017-09-24T14:28:10.289723+00:00 app[web.1]: [2017-09-24 14:28:10 +0000] [4] [INFO] Using worker: sync
+2017-09-24T14:28:10.302021+00:00 app[web.1]: [2017-09-24 14:28:10 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-24T14:28:10.316138+00:00 app[web.1]: [2017-09-24 14:28:10 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-24T14:28:10.778663+00:00 heroku[web.1]: State changed from starting to up
+2017-09-24T14:28:11.522091+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=ab80ef86-fd7d-4c54-8531-6d1122bec040 fwd="103.195.92.133" dyno=web.1 connect=1ms service=63ms status=400 bytes=347 protocol=https
+2017-09-24T14:28:11.687529+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=835549fe-8060-4c50-a8f0-438238e6f8f4 fwd="103.195.92.133" dyno=web.1 connect=2ms service=6ms status=200 bytes=179 protocol=https
+2017-09-24T14:33:53.492939+00:00 heroku[web.1]: Restarting
+2017-09-24T14:33:53.493658+00:00 heroku[web.1]: State changed from up to starting
+2017-09-24T14:33:54.464032+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-24T14:33:54.480557+00:00 app[web.1]: [2017-09-24 14:33:54 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-24T14:33:54.482229+00:00 app[web.1]: [2017-09-24 14:33:54 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-24T14:33:54.482351+00:00 app[web.1]: [2017-09-24 14:33:54 +0000] [4] [INFO] Handling signal: term
+2017-09-24T14:33:54.493473+00:00 app[web.1]: [2017-09-24 14:33:54 +0000] [4] [INFO] Shutting down: Master
+2017-09-24T14:33:54.628751+00:00 heroku[web.1]: Process exited with status 0
+2017-09-24T14:34:20.245924+00:00 heroku[web.1]: Starting process with command `gunicorn main:app`
+2017-09-24T14:34:25.749602+00:00 app[web.1]: [2017-09-24 14:34:25 +0000] [4] [INFO] Starting gunicorn 19.7.1
+2017-09-24T14:34:25.750216+00:00 app[web.1]: [2017-09-24 14:34:25 +0000] [4] [INFO] Listening at: http://0.0.0.0:58166 (4)
+2017-09-24T14:34:25.750348+00:00 app[web.1]: [2017-09-24 14:34:25 +0000] [4] [INFO] Using worker: sync
+2017-09-24T14:34:25.761065+00:00 app[web.1]: [2017-09-24 14:34:25 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-24T14:34:25.854178+00:00 app[web.1]: [2017-09-24 14:34:25 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-24T14:34:25.980353+00:00 heroku[web.1]: State changed from starting to up
+2017-09-24T14:34:27.991972+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=1eb5d5ee-3cb4-42a5-b2cd-8c170185a5e1 fwd="103.195.92.133" dyno=web.1 connect=0ms service=3ms status=200 bytes=179 protocol=https
+2017-09-24T14:34:34.799265+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=4470b42c-5693-4fe0-a58f-a99e8df486d7 fwd="103.195.92.133" dyno=web.1 connect=0ms service=53ms status=400 bytes=347 protocol=https
+2017-09-24T14:54:06.637995+00:00 heroku[web.1]: Restarting
+2017-09-24T14:54:06.639044+00:00 heroku[web.1]: State changed from up to starting
+2017-09-24T14:54:07.568493+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-24T14:54:07.590568+00:00 app[web.1]: [2017-09-24 14:54:07 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-24T14:54:07.590549+00:00 app[web.1]: [2017-09-24 14:54:07 +0000] [4] [INFO] Handling signal: term
+2017-09-24T14:54:07.591059+00:00 app[web.1]: [2017-09-24 14:54:07 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-24T14:54:07.786998+00:00 app[web.1]: [2017-09-24 14:54:07 +0000] [4] [INFO] Shutting down: Master
+2017-09-24T14:54:08.042776+00:00 heroku[web.1]: Process exited with status 0
+2017-09-24T14:54:09.552332+00:00 heroku[web.1]: Starting process with command `gunicorn main:app`
+2017-09-24T14:54:12.921952+00:00 app[web.1]: [2017-09-24 14:54:12 +0000] [4] [INFO] Starting gunicorn 19.7.1
+2017-09-24T14:54:12.922600+00:00 app[web.1]: [2017-09-24 14:54:12 +0000] [4] [INFO] Listening at: http://0.0.0.0:38357 (4)
+2017-09-24T14:54:12.922735+00:00 app[web.1]: [2017-09-24 14:54:12 +0000] [4] [INFO] Using worker: sync
+2017-09-24T14:54:12.928932+00:00 app[web.1]: [2017-09-24 14:54:12 +0000] [9] [INFO] Booting worker with pid: 9
+2017-09-24T14:54:13.023374+00:00 app[web.1]: [2017-09-24 14:54:13 +0000] [10] [INFO] Booting worker with pid: 10
+2017-09-24T14:54:13.320173+00:00 heroku[web.1]: State changed from starting to up
+2017-09-24T15:28:03.932390+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=8c1b3768-8014-45ab-ba36-bcce598ec2ff fwd="103.195.92.133" dyno=web.1 connect=1ms service=4ms status=200 bytes=179 protocol=https
+2017-09-24T15:28:09.648670+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=d7287417-8a4b-4208-8587-80b8c9c36b87 fwd="103.195.92.133" dyno=web.1 connect=1ms service=96ms status=400 bytes=347 protocol=https
+2017-09-24T15:28:23.468841+00:00 heroku[web.1]: Idling
+2017-09-24T15:28:23.469532+00:00 heroku[web.1]: State changed from up to down
+2017-09-24T15:28:24.416523+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2017-09-24T15:28:24.431797+00:00 app[web.1]: [2017-09-24 15:28:24 +0000] [4] [INFO] Handling signal: term
+2017-09-24T15:28:24.432465+00:00 app[web.1]: [2017-09-24 15:28:24 +0000] [9] [INFO] Worker exiting (pid: 9)
+2017-09-24T15:28:24.441502+00:00 app[web.1]: [2017-09-24 15:28:24 +0000] [10] [INFO] Worker exiting (pid: 10)
+2017-09-24T15:28:24.543296+00:00 app[web.1]: [2017-09-24 15:28:24 +0000] [4] [INFO] Shutting down: Master
+2017-09-24T15:28:24.739143+00:00 heroku[web.1]: Process exited with status 0

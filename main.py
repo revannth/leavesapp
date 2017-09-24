@@ -24,15 +24,15 @@ mysql.init_app(app)
 def index():
 	return '<h1> Deployed </h1>'
 
-@app.route('/Authenticate',methods =['GET','POST'])
+@app.route('/Authenticate',methods =['POST'])
 def Authenticate():
 	error = None
 	username = request.form['username']
 	password = request.form['password']
 	cursor = mysql.connect.cursor()
-	cursor.execute("SELECT user FROM auth_cont")
+	cursor.execute("SELECT user FROM auth_cont;")
 	data_user = cursor.fetchall()
-	cursor.execute("SELECT pass FROM auth_cont")
+	cursor.execute("SELECT pass FROM auth_cont;")
 	data_pass = cursor.fetchall()
 	if request.method == 'POST':
 		for key,value in enumerate(data_user):
