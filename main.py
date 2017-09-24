@@ -23,11 +23,11 @@ mysql.init_app(app)
 @app.route('/')
 def index():
 	return '<h1> Deployed </h1>'
-@app.route('/home')
+@app.route('/home',methods =['GET'])
 def home():
 	return '<h1> Success </h1>'
 
-@app.route('/Authenticate',methods =['POST'])
+@app.route('/Authenticate',methods =['GET','POST'])
 def Authenticate():
 	error = None
 	username = request.form['username']
@@ -52,5 +52,5 @@ def Authenticate():
 	return render_template('login.html',error=error)
 
 if __name__ == "__main__":
-	app.run()
+	app.run(debug=True)
 
