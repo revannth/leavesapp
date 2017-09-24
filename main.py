@@ -34,7 +34,7 @@ def Authenticate():
 	data_user = cursor.fetchall()
 	cursor.execute("SELECT pass FROM auth_cont")
 	data_pass = cursor.fetchall()
-	if request.method == 'GET':
+	if request.method == 'POST':
 		for key,value in enumerate(data_user):
 			if value == username:
 				pos_user = key
