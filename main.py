@@ -23,6 +23,9 @@ mysql.init_app(app)
 @app.route('/')
 def index():
 	return '<h1> Deployed </h1>'
+@app.route('/home')
+def home():
+	return '<h1> Success </h1>'
 
 @app.route('/Authenticate',methods =['POST'])
 def Authenticate():
@@ -42,10 +45,10 @@ def Authenticate():
 			if value == password:
 				pos_pass = key
 
-	if pos_user == pos_pass:
-		return redirect(url_for('index'))
-	else:
-		error = "Invalid User Name or Password"
+		if pos_user == pos_pass:
+			return redirect(url_for('home'))
+		else:
+			error = "Invalid User Name or Password"
 	return render_template('login.html',error=error)
 
 if __name__ == "__main__":
