@@ -22,7 +22,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def index():
-	return '<h1> Deployed </h1>'
+	return redirect(url_for('Authenticate'))
 @app.route('/home',methods =['GET'])
 def home():
 	return '<h1> Success </h1>'
@@ -30,25 +30,30 @@ def home():
 @app.route('/Authenticate',methods =['GET','POST'])
 def Authenticate():
 	error = None
-	username = request.form['username']
-	password = request.form['password']
-	cursor = mysql.connect.cursor()
-	cursor.execute("SELECT user FROM auth_cont;")
-	data_user = cursor.fetchall()
-	cursor.execute("SELECT pass FROM auth_cont;")
-	data_pass = cursor.fetchall()
+	pos_user = None
+	pos_pass = None
 	if request.method == 'POST':
+		username = '('+'u'+"'"+ request.form['username'] + "',"+')'
+		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
+		#print(username)
+		cursor = mysql.connect.cursor()
+		cursor.execute("SELECT user FROM auth_cont;")
+		data_user = cursor.fetchall()
+		print(data_user)
+		print(username)
+		cursor.execute("SELECT pass FROM auth_cont;")
+		data_pass = cursor.fetchall()
+		#if request.method == 'POST':
 		for key,value in enumerate(data_user):
 			if value == username:
 				pos_user = key
 		for key,value in enumerate(data_pass):
 			if value == password:
 				pos_pass = key
-
 		if pos_user == pos_pass:
 			return redirect(url_for('home'))
 		else:
-			error = "Invalid User Name or Password"
+			error = "Invalid User Name or Password" 
 	return render_template('login.html',error=error)
 
 if __name__ == "__main__":
