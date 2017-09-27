@@ -1,6 +1,6 @@
 import pymysql
 pymysql.install_as_MySQLdb()
-from flask import Flask,render_template,redirect,url_for,request
+from flask import Flask,render_template,redirect,url_for,request,session
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
@@ -18,15 +18,21 @@ app.config['MYSQL_DB'] = 'auth_cont'
 
 #app.config['MYSQL_DB'] = 'id2597668_vicky'
 mysql.init_app(app)
+app.secret_key='revannth this is encryption key'
 #db = MySQLdb.connect(host='databases.000webhost.com',user='id2597668_saivicky',passwd='chelamela',db='id2597668_vicky')
 
 @app.route('/')
 def index():
 	return redirect(url_for('Authenticate'))
-@app.route('/home',methods=['POST'])
+@app.route('/home')
 def home():
-	return '<h1> Success </h1>'
 
+	if 'hashkey' in session and session['hashkey']>0 :
+		return '<h1> Success </h1>'
+	else :
+		return '<h1>Your Action will be reported</h1>'
+
+	
 @app.route('/Authenticate',methods =['POST','GET'])
 def Authenticate():
 	error = None
@@ -55,6 +61,7 @@ def Authenticate():
 		else:
 			error = "Invalid User Name or Password"  '''
 		if data_user==data_pass and data_pass!=() and data_user!=() :
+			session['hashkey']=data_user
 			return redirect(url_for('home'))
 		else :
 			error = "Invalid User Name or Password"
