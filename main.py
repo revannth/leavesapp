@@ -23,28 +23,28 @@ mysql.init_app(app)
 @app.route('/')
 def index():
 	return redirect(url_for('Authenticate'))
-@app.route('/home',methods =['GET'])
+@app.route('/home',methods=['POST'])
 def home():
 	return '<h1> Success </h1>'
 
-@app.route('/Authenticate',methods =['GET','POST'])
+@app.route('/Authenticate',methods =['POST','GET'])
 def Authenticate():
 	error = None
 	pos_user = None
 	pos_pass = None
 	if request.method == 'POST':
-		username = '('+'u'+"'"+ request.form['username'] + "',"+')'
-		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
+		'''username = '('+'u'+"'"+ request.form['username'] + "',"+')'
+		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')' '''
 		#print(username)
 		cursor = mysql.connect.cursor()
-		cursor.execute("SELECT user FROM auth_cont;")
+		cursor.execute("SELECT hashkey FROM auth_cont WHERE user=%s",request.form['username'])
 		data_user = cursor.fetchall()
 		print(data_user)
-		print(username)
-		cursor.execute("SELECT pass FROM auth_cont;")
+		#print(username)
+		cursor.execute("SELECT hashkey FROM auth_cont WHERE pass=%s",request.form['password'])
 		data_pass = cursor.fetchall()
 		#if request.method == 'POST':
-		for key,value in enumerate(data_user):
+		'''for key,value in enumerate(data_user):
 			if value == username:
 				pos_user = key
 		for key,value in enumerate(data_pass):
@@ -53,7 +53,11 @@ def Authenticate():
 		if pos_user == pos_pass:
 			return redirect(url_for('home'))
 		else:
-			error = "Invalid User Name or Password" 
+			error = "Invalid User Name or Password"  '''
+		if data_user==data_pass and data_pass!=() and data_user!=() :
+			return redirect(url_for('home'))
+		else :
+			error = "Invalid User Name or Password"
 	return render_template('login.html',error=error)
 
 if __name__ == "__main__":
