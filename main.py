@@ -28,7 +28,13 @@ def index():
 def home():
 
 	if 'hashkey' in session and session['hashkey']>0 :
-		return '<h1> Success </h1>'
+		cursor = mysql.connect.cursor()
+		cursor.execute("SELECT ename FROM authorizers WHERE ename=%s",username)
+		data_auth = cursor.fetchall()
+		if data_auth != None:
+			return render_template('home_hod.html',username=username)
+		else :
+			return render_template('home.html',username=username)
 	else :
 		return '<h1>Your Action will be reported</h1>'
 
@@ -39,8 +45,10 @@ def Authenticate():
 	pos_user = None
 	pos_pass = None
 	if request.method == 'POST':
-		'''username = '('+'u'+"'"+ request.form['username'] + "',"+')'
-		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')' '''
+		username = request.form['username']
+		global username
+		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
+		global password
 		#print(username)
 		cursor = mysql.connect.cursor()
 		cursor.execute("SELECT hashkey FROM auth_cont WHERE user=%s",request.form['username'])
