@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if type =="hod":%}
+	<title>HoD Page</title>
+	{% endif %}
+</head>
+<body>
+<div>
+	<h1>Name : {{username}}</h1>
+</div>
+<div>
+{% if type =="hod":%}
+<form method="POST">	
+	<button value=submit>Click to check the status</button>
+	
+	<table>
+		<tr>
+			<th>Type of leave</th>
+			<th>Apply data</th>
+			<th>Number of Days</th>
+		</tr>
+		<tr>
+			{% for row in l_applied: %}
+			<td>{{row}}</td>
+			{% endfor %}
+		</tr>
+	</table>
+	
+<form>
+</div>
+{% endif %}
+</body>
+</html>

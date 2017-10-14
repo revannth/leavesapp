@@ -24,19 +24,32 @@ app.secret_key='revannth this is encryption key'
 @app.route('/')
 def index():
 	return redirect(url_for('Authenticate'))
-@app.route('/home')
+@app.route('/home',methods =['POST','GET'])
 def home():
 
+	l_applied=[]
 	if 'hashkey' in session and session['hashkey']>0 :
-		cursor = mysql.connect.cursor()
-		cursor.execute("SELECT ename FROM authorizers WHERE ename=%s",username)
+		cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
 		data_auth = cursor.fetchall()
-		if data_auth != None:
-			return render_template('home_hod.html',username=username)
-		else :
-			return render_template('home.html',username=username)
-	else :
+			#print(len(data_auth))
+		if len(data_auth)>0:
+			type="hod"
+		else:
+			type="staff"	
+	else:
 		return '<h1>Your Action will be reported</h1>'
+	if request.method =='POST':
+		cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
+		temp_applied = cursor.fetchall()
+		for index,row in enumerate(temp_applied) :
+			l_applied.append(row[index])
+			l_applied.append(row[index+1])
+			l_applied.append(row[index+2])
+
+			
+	return render_template('home.html',username=username,type=type,l_applied=l_applied)
+
+	
 
 	
 @app.route('/Authenticate',methods =['POST','GET'])
@@ -45,11 +58,12 @@ def Authenticate():
 	pos_user = None
 	pos_pass = None
 	if request.method == 'POST':
-		username = request.form['username']
 		global username
+		global username
+		username = request.form['username']
 		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
-		global password
 		#print(username)
+		global cursor
 		cursor = mysql.connect.cursor()
 		cursor.execute("SELECT hashkey FROM auth_cont WHERE user=%s",request.form['username'])
 		data_user = cursor.fetchall()
@@ -74,6 +88,9 @@ def Authenticate():
 		else :
 			error = "Invalid User Name or Password"
 	return render_template('login.html',error=error)
+
+
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
