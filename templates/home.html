@@ -4,6 +4,10 @@
 	{% if type =="hod":%}
 	<title>HoD Page</title>
 	{% endif %}
+
+	{% if type =="staff":%}
+	<title>Staff Page</title>
+	{% endif %}
 </head>
 <body>
 <div>
@@ -17,13 +21,14 @@
 	<table>
 		<tr>
 			<th>Type of leave</th>
-			<th>Apply data</th>
+			<th>Apply Date</th>
 			<th>Number of Days</th>
 		</tr>
 		<tr>
 			{% for row in l_applied: %}
 			<td>{{row}}</td>
 			{% endfor %}
+			<button type="submit">Approve</button>
 		</tr>
 	</table>
 	

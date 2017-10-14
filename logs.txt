@@ -1,0 +1,101 @@
+2017-10-14T13:45:00.348713+00:00 app[web.1]: [2017-10-14 13:45:00,348] ERROR in app: Exception on /home [GET]
+2017-10-14T13:45:00.348724+00:00 app[web.1]: Traceback (most recent call last):
+2017-10-14T13:45:00.348725+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+2017-10-14T13:45:00.348726+00:00 app[web.1]:     response = self.full_dispatch_request()
+2017-10-14T13:45:00.348726+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+2017-10-14T13:45:00.348727+00:00 app[web.1]:     rv = self.handle_user_exception(e)
+2017-10-14T13:45:00.348728+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+2017-10-14T13:45:00.348728+00:00 app[web.1]:     reraise(exc_type, exc_value, tb)
+2017-10-14T13:45:00.348729+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+2017-10-14T13:45:00.348730+00:00 app[web.1]:     rv = self.dispatch_request()
+2017-10-14T13:45:00.348730+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+2017-10-14T13:45:00.348731+00:00 app[web.1]:     return self.view_functions[rule.endpoint](**req.view_args)
+2017-10-14T13:45:00.348732+00:00 app[web.1]:   File "/app/main.py", line 32, in home
+2017-10-14T13:45:00.348733+00:00 app[web.1]:     cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
+2017-10-14T13:45:00.348733+00:00 app[web.1]: NameError: global name 'cursor' is not defined
+2017-10-14T13:45:01.662983+00:00 heroku[router]: at=info method=GET path="/home" host=stark-reef-82664.herokuapp.com request_id=bb8914a2-ecec-418c-aaa7-abd13dac6b9e fwd="103.195.92.154" dyno=web.1 connect=12ms service=10ms status=500 bytes=456 protocol=https
+2017-10-14T13:45:01.656024+00:00 app[web.1]: [2017-10-14 13:45:01,655] ERROR in app: Exception on /home [GET]
+2017-10-14T13:45:01.656034+00:00 app[web.1]: Traceback (most recent call last):
+2017-10-14T13:45:01.656036+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+2017-10-14T13:45:01.656037+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+2017-10-14T13:45:01.656036+00:00 app[web.1]:     response = self.full_dispatch_request()
+2017-10-14T13:45:01.656038+00:00 app[web.1]:     rv = self.handle_user_exception(e)
+2017-10-14T13:45:01.656039+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+2017-10-14T13:45:01.656039+00:00 app[web.1]:     reraise(exc_type, exc_value, tb)
+2017-10-14T13:45:01.656040+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+2017-10-14T13:45:01.656041+00:00 app[web.1]:     rv = self.dispatch_request()
+2017-10-14T13:45:01.656041+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+2017-10-14T13:45:01.656042+00:00 app[web.1]:     return self.view_functions[rule.endpoint](**req.view_args)
+2017-10-14T13:45:01.656043+00:00 app[web.1]:   File "/app/main.py", line 32, in home
+2017-10-14T13:45:01.656044+00:00 app[web.1]: NameError: global name 'cursor' is not defined
+2017-10-14T13:45:01.656044+00:00 app[web.1]:     cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
+2017-10-14T13:50:17.771728+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=4cd878ff-355c-49ae-8fe3-a6a39659fa60 fwd="103.195.92.154" dyno=web.1 connect=1ms service=5ms status=302 bytes=460 protocol=https
+2017-10-14T13:50:18.090714+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=2077e89b-45cb-46c6-b326-2cd109767241 fwd="103.195.92.154" dyno=web.1 connect=1ms service=14ms status=200 bytes=736 protocol=https
+2017-10-14T14:04:19.982988+00:00 heroku[router]: at=info method=POST path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=37d25d38-6913-485d-b3c3-86ffa2ab9882 fwd="103.195.92.154" dyno=web.1 connect=0ms service=299ms status=302 bytes=554 protocol=https
+2017-10-14T14:04:19.946859+00:00 app[web.1]: ((61,),)
+2017-10-14T14:04:21.418942+00:00 heroku[router]: at=info method=GET path="/home" host=stark-reef-82664.herokuapp.com request_id=a84fd23f-c533-4c18-b90f-ba7718a563bf fwd="103.195.92.154" dyno=web.1 connect=0ms service=50ms status=500 bytes=456 protocol=https
+2017-10-14T14:04:21.411433+00:00 app[web.1]: [2017-10-14 14:04:21,401] ERROR in app: Exception on /home [GET]
+2017-10-14T14:04:21.411449+00:00 app[web.1]: Traceback (most recent call last):
+2017-10-14T14:04:21.411450+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+2017-10-14T14:04:21.411451+00:00 app[web.1]:     response = self.full_dispatch_request()
+2017-10-14T14:04:21.411457+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+2017-10-14T14:04:21.411455+00:00 app[web.1]:     rv = self.handle_user_exception(e)
+2017-10-14T14:04:21.411454+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+2017-10-14T14:04:21.411456+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+2017-10-14T14:04:21.411456+00:00 app[web.1]:     reraise(exc_type, exc_value, tb)
+2017-10-14T14:04:21.411457+00:00 app[web.1]:     rv = self.dispatch_request()
+2017-10-14T14:04:21.411458+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+2017-10-14T14:04:21.411460+00:00 app[web.1]:     return self.view_functions[rule.endpoint](**req.view_args)
+2017-10-14T14:04:21.411460+00:00 app[web.1]:   File "/app/main.py", line 32, in home
+2017-10-14T14:04:21.411461+00:00 app[web.1]:     cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
+2017-10-14T14:04:21.411462+00:00 app[web.1]: NameError: global name 'cursor' is not defined
+2017-10-14T14:10:42.183552+00:00 heroku[router]: at=info method=GET path="/home" host=stark-reef-82664.herokuapp.com request_id=ddd4da57-3286-4421-81e4-25730e8b20de fwd="103.195.92.154" dyno=web.1 connect=1ms service=5ms status=500 bytes=456 protocol=https
+2017-10-14T14:10:42.181774+00:00 app[web.1]: Traceback (most recent call last):
+2017-10-14T14:10:42.181761+00:00 app[web.1]: [2017-10-14 14:10:42,181] ERROR in app: Exception on /home [GET]
+2017-10-14T14:10:42.181775+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+2017-10-14T14:10:42.181776+00:00 app[web.1]:     response = self.full_dispatch_request()
+2017-10-14T14:10:42.181777+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+2017-10-14T14:10:42.181778+00:00 app[web.1]:     rv = self.handle_user_exception(e)
+2017-10-14T14:10:42.181779+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+2017-10-14T14:10:42.181780+00:00 app[web.1]:     reraise(exc_type, exc_value, tb)
+2017-10-14T14:10:42.181780+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+2017-10-14T14:10:42.181781+00:00 app[web.1]:     rv = self.dispatch_request()
+2017-10-14T14:10:42.181783+00:00 app[web.1]:     return self.view_functions[rule.endpoint](**req.view_args)
+2017-10-14T14:10:42.181782+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+2017-10-14T14:10:42.181784+00:00 app[web.1]:   File "/app/main.py", line 32, in home
+2017-10-14T14:10:42.181785+00:00 app[web.1]:     cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
+2017-10-14T14:10:42.181786+00:00 app[web.1]: NameError: global name 'cursor' is not defined
+2017-10-14T14:19:31.661322+00:00 heroku[router]: at=info method=GET path="/" host=stark-reef-82664.herokuapp.com request_id=b2713628-e60b-4b4e-8e2d-f3bd330233ac fwd="103.195.92.154" dyno=web.1 connect=1ms service=6ms status=302 bytes=460 protocol=https
+2017-10-14T14:19:31.971802+00:00 heroku[router]: at=info method=GET path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=205781e5-d84f-4eb1-ac99-6b178de06114 fwd="103.195.92.154" dyno=web.1 connect=1ms service=11ms status=200 bytes=736 protocol=https
+2017-10-14T14:19:40.599516+00:00 heroku[router]: at=info method=POST path="/Authenticate" host=stark-reef-82664.herokuapp.com request_id=cf5a6428-de59-4a8d-a4d5-0fd8866b105a fwd="103.195.92.154" dyno=web.1 connect=1ms service=83ms status=302 bytes=554 protocol=https
+2017-10-14T14:19:40.583654+00:00 app[web.1]: ((61,),)
+2017-10-14T14:19:40.926151+00:00 heroku[router]: at=info method=GET path="/home" host=stark-reef-82664.herokuapp.com request_id=a213efb5-ec24-4b0a-9a1f-aefe22e696fb fwd="103.195.92.154" dyno=web.1 connect=1ms service=26ms status=500 bytes=456 protocol=https
+2017-10-14T14:19:40.924179+00:00 app[web.1]: [2017-10-14 14:19:40,907] ERROR in app: Exception on /home [GET]
+2017-10-14T14:19:40.924201+00:00 app[web.1]: Traceback (most recent call last):
+2017-10-14T14:19:40.924202+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+2017-10-14T14:19:40.924203+00:00 app[web.1]:     response = self.full_dispatch_request()
+2017-10-14T14:19:40.924203+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+2017-10-14T14:19:40.924204+00:00 app[web.1]:     rv = self.handle_user_exception(e)
+2017-10-14T14:19:40.924206+00:00 app[web.1]:     reraise(exc_type, exc_value, tb)
+2017-10-14T14:19:40.924205+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+2017-10-14T14:19:40.924206+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+2017-10-14T14:19:40.924207+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+2017-10-14T14:19:40.924207+00:00 app[web.1]:     rv = self.dispatch_request()
+2017-10-14T14:19:40.924208+00:00 app[web.1]:     return self.view_functions[rule.endpoint](**req.view_args)
+2017-10-14T14:19:40.924209+00:00 app[web.1]:   File "/app/main.py", line 32, in home
+2017-10-14T14:19:40.924211+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/cursors.py", line 166, in execute
+2017-10-14T14:19:40.924210+00:00 app[web.1]:     cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
+2017-10-14T14:19:40.924212+00:00 app[web.1]:     result = self._query(query)
+2017-10-14T14:19:40.924213+00:00 app[web.1]:     conn.query(q)
+2017-10-14T14:19:40.924212+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/cursors.py", line 322, in _query
+2017-10-14T14:19:40.924214+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/connections.py", line 856, in query
+2017-10-14T14:19:40.924214+00:00 app[web.1]:     self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+2017-10-14T14:19:40.924215+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+2017-10-14T14:19:40.924216+00:00 app[web.1]:     result.read()
+2017-10-14T14:19:40.924216+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/connections.py", line 1340, in read
+2017-10-14T14:19:40.924217+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/connections.py", line 987, in _read_packet
+2017-10-14T14:19:40.924217+00:00 app[web.1]:     first_packet = self.connection._read_packet()
+2017-10-14T14:19:40.924218+00:00 app[web.1]:     packet_header = self._read_bytes(4)
+2017-10-14T14:19:40.924220+00:00 app[web.1]:     CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
+2017-10-14T14:19:40.924219+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/pymysql/connections.py", line 1033, in _read_bytes
+2017-10-14T14:19:40.924220+00:00 app[web.1]: OperationalError: (2013, 'Lost connection to MySQL server during query')

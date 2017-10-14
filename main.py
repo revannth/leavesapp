@@ -21,6 +21,7 @@ mysql.init_app(app)
 app.secret_key='revannth this is encryption key'
 #db = MySQLdb.connect(host='databases.000webhost.com',user='id2597668_saivicky',passwd='chelamela',db='id2597668_vicky')
 
+
 @app.route('/')
 def index():
 	return redirect(url_for('Authenticate'))
@@ -59,12 +60,13 @@ def Authenticate():
 	pos_pass = None
 	if request.method == 'POST':
 		global username
-		global username
+		global password
+		global cursor
+		cursor = mysql.connect.cursor()
 		username = request.form['username']
 		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
 		#print(username)
-		global cursor
-		cursor = mysql.connect.cursor()
+		
 		cursor.execute("SELECT hashkey FROM auth_cont WHERE user=%s",request.form['username'])
 		data_user = cursor.fetchall()
 		print(data_user)
