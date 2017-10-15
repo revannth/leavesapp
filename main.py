@@ -42,10 +42,8 @@ def home():
 	if request.method =='POST':
 		cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
 		temp_applied = cursor.fetchall()
-		for index,row in enumerate(temp_applied) :
-			l_applied.append(row[index])
-			l_applied.append(row[index+1])
-			l_applied.append(row[index+2])
+		l_applied =[list(x) for x in temp_applied]
+		
 
 			
 	return render_template('home.html',username=username,type=type,l_applied=l_applied)

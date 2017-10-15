@@ -24,12 +24,18 @@
 			<th>Apply Date</th>
 			<th>Number of Days</th>
 		</tr>
-		<tr>
+		
 			{% for row in l_applied: %}
-			<td>{{row}}</td>
+			<tr>
+				{%for elem in row:%}
+					<td>{{elem}}</td>
+				{% endfor %}
+			<td><button type="submit">Approve</button></td>
+			</tr>
 			{% endfor %}
-			<button type="submit">Approve</button>
-		</tr>
+			
+			
+		
 	</table>
 	
 <form>
