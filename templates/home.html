@@ -14,6 +14,12 @@
 	<h1>Name : {{username}}</h1>
 </div>
 <div>
+	<form method='POST'>
+	<button type="submit" name='submit' value='logout'> <b> Logout</b> 
+	</button>
+</form>
+</div>
+<div>
 {% if type =="hod":%}
 <form method="POST">	
 	<button name ='submit' type="submit" value="show">Click to check the status</button>
@@ -38,8 +44,11 @@
 		
 	</table>
 	
-<form>
+</form>
 </div>
+{% endif %}
+{%if type=="staff" :%}
+
 {% endif %}
 </body>
 </html>

@@ -27,9 +27,13 @@ def index():
 	return redirect(url_for('Authenticate'))
 @app.route('/home',methods =['POST','GET'])
 def home():
+	conn=mysql.connect
+	cursor = mysql.connect.cursor()
+		
 
 	l_applied=[]
 	if 'hashkey' in session and session['hashkey']>0 :
+		print session['hashkey'];
 		cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
 		data_auth = cursor.fetchall()
 			#print(len(data_auth))
@@ -40,11 +44,14 @@ def home():
 	else:
 		return '<h1>Your Action will be reported</h1>'
 	if request.method =='POST':
-		if request.form['submit'] == 'show':
+		if request.form['submit']=='logout':
+			session['hashkey']=-1;
+			return redirect(url_for('Authenticate'));
+		elif request.form['submit'] == 'show':
 			cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
 			temp_applied = cursor.fetchall()
 			l_applied =[list(x) for x in temp_applied]
-		if request.form['submit'] == 'change':
+		elif request.form['submit'] == 'change':
 			cursor.execute("UPDATE leaves SET `approveddate`='2017-04-08' WHERE eid=10501;")
 			conn.commit()
 			print(cursor._executed)
