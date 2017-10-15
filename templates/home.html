@@ -16,8 +16,8 @@
 <div>
 {% if type =="hod":%}
 <form method="POST">	
-	<button value=submit>Click to check the status</button>
-	
+	<button name ='submit' type="submit" value="show">Click to check the status</button>
+
 	<table>
 		<tr>
 			<th>Type of leave</th>
@@ -30,7 +30,7 @@
 				{%for elem in row:%}
 					<td>{{elem}}</td>
 				{% endfor %}
-			<td><button type="submit">Approve</button></td>
+			<td><button name='submit' type="submit" value="change">Approve</button></td>
 			</tr>
 			{% endfor %}
 			

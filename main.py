@@ -40,10 +40,14 @@ def home():
 	else:
 		return '<h1>Your Action will be reported</h1>'
 	if request.method =='POST':
-		cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
-		temp_applied = cursor.fetchall()
-		l_applied =[list(x) for x in temp_applied]
-		
+		if request.form['submit'] == 'show':
+			cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
+			temp_applied = cursor.fetchall()
+			l_applied =[list(x) for x in temp_applied]
+		if request.form['submit'] == 'change':
+			cursor.execute("UPDATE leaves SET `approveddate`='2017-04-08' WHERE eid=10501;")
+			conn.commit()
+			print(cursor._executed)
 
 			
 	return render_template('home.html',username=username,type=type,l_applied=l_applied)
@@ -60,6 +64,8 @@ def Authenticate():
 		global username
 		global password
 		global cursor
+		global conn
+		conn=mysql.connect
 		cursor = mysql.connect.cursor()
 		username = request.form['username']
 		password ='('+ 'u'+"'"+ request.form['password'] + "',"+')'
