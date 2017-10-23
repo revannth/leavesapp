@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Displaying the page titile according to the user -->
 	{% if type =="hod":%}
 	<title>HoD Page</title>
 	{% endif %}
@@ -16,24 +17,22 @@
 	<h1>Name : {{username}}</h1>
 </div>
 <div>
-	<form method='POST'>
-	<button type="submit" name='submit' value='logout'> <b> Logout</b> 
-	</button>
-</form>
+	
 </div>
 <div>
 {% if type =="hod":%}
 <form method="POST">	
 	<button name ='submit' type="submit" value="show">Click to check the status</button>
-<!--</form> -->
+</form> 
 	<table>
 		<tr>
 			<th>Type of leave</th>
 			<th>Apply Date</th>
 			<th>Number of Days</th>
 		</tr>
-			
-			{% for row in l_applied: %}
+		</table>
+
+		<!--	{% for row in l_applied: %}
 			<tr>
 				<input type='hidden' name='eid' value='{{row[0]}}'>	
 				{%for elem in row:%}
@@ -43,29 +42,25 @@
 
 
 			<td><button name='submit' type="submit" value="change">Approve</button></td> 
+			</tr> -->
 		
-		<!--<form method="POST">
+		<form method="POST">
+			
 			<input type='hidden' name='eid' value='{{row[0]}}'>	
 				
 			{{ row[1]}}-{{ row[2]}}-{{ row[3]}}{{ row[4]}}
-
-
-
-			<button type="submit" name="submit" value="accept"> accept</button>
-			<button type="submit" name="reject" value=" reject"> reject</button>
-
-
-
-		</form> -->
-		</tr> 
 			
-			{% endfor %}
+			<button type="submit" name="submit" value="accept"> accept</button>
+			<button type="submit" name="submit" value=" reject"> reject</button>
+		</form> 
+		
+			
+			<!--{% endfor %}
 			
 			
 		
-	</table>
-	
- </form>
+		
+ <!--</form>-->
 </div>
 {% endif %}
 {%if type=="staff" :%}
@@ -93,5 +88,10 @@
 	</div>
 
 {% endif %}
+
+<form method='POST'>
+	<button type="submit" name='submit' value='logout'> <b> Logout</b> 
+	</button>
+</form>
 </body>
 </html>
