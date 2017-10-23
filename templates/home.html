@@ -8,6 +8,8 @@
 	{% if type =="staff":%}
 	<title>Staff Page</title>
 	{% endif %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="static/staff_page.css">
 </head>
 <body>
 <div>
@@ -48,6 +50,28 @@
 </div>
 {% endif %}
 {%if type=="staff" :%}
+<div class="jumbotron">
+  		<h1 class="display-3">Application of Leave</h1>
+  		<p>Please fill in the small form in order to apply for a leave</p>
+	</div>
+	<div class="container">
+		<div class="form">
+			<form>
+				Type of Leave:<select name="leave">
+  						<option value="e_l">Earned Leave</option>
+  						<option value="c_l">Casual</option>
+  						<option value="c_c_l">Compensated Casual Leave</option>
+  						<option value="m_l">Medical Leave</option>
+  						<option value="e_o_l">Extra-ordinary Leave</option>
+  						<option value="o_d">On-Duty</option>
+						</select><br>
+				Number of Leaves:<input type="number" name="number" ><br>
+				Reason:<input type="text" name="reason"><br>
+				Start Date:<input type="date" name="date"><br>
+				<input type="button" name="button" value="apply">
+			</form>
+		</div>
+	</div>
 
 {% endif %}
 </body>

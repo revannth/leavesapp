@@ -1,37 +1,31 @@
+#Imports
 import pymysql
 pymysql.install_as_MySQLdb()
 from flask import Flask,render_template,redirect,url_for,request,session
 from flask_mysqldb import MySQL
 
+#DATABASE CONNECTIONS
 app = Flask(__name__)
 mysql = MySQL(app)
-app.config['MYSQL_HOST'] = 'us-cdbr-iron-east-05.cleardb.net'
-app.config['MYSQL_USER'] = 'ba6ad320cb67d2'
-app.config['MYSQL_PASSWORD'] = 'd44c8e9f'
-app.config['MYSQL_DB'] = 'heroku_fa71028ec71c3a9' 
-
-'''app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Revannth@1'
-app.config['MYSQL_DB'] = 'auth_cont' 
-'''
-
-#app.config['MYSQL_DB'] = 'id2597668_vicky'
+app.config['MYSQL_PASSWORD'] = 'Revannth@1' 
+app.config['MYSQL_DB'] = 'project_dbms' 
 mysql.init_app(app)
 app.secret_key='revannth this is encryption key'
-#db = MySQLdb.connect(host='databases.000webhost.com',user='id2597668_saivicky',passwd='chelamela',db='id2597668_vicky')
 
 
+#ROUTES
 @app.route('/')
 def index():
 	return redirect(url_for('Authenticate'))
+
 @app.route('/home',methods =['POST','GET'])
 def home():
 	conn=mysql.connect
-	cursor = mysql.connect.cursor()
-		
-
+	cursor = conn.cursor()
 	l_applied=[]
+	#hash token checking and enabling login
 	if 'hashkey' in session and session['hashkey']>0 :
 		print session['hashkey'];
 		cursor.execute("SELECT ename FROM authorizers INNER JOIN employee ON employee.eid=authorizers.eid AND ename=%s;",username)
@@ -52,8 +46,13 @@ def home():
 			temp_applied = cursor.fetchall()
 			l_applied =[list(x) for x in temp_applied]
 		elif request.form['submit'] == 'change':
-			cursor.execute("UPDATE leaves SET `approveddate`='2017-04-08' WHERE eid=10501;")
+			cursor.execute("UPDATE leaves SET `approveddate`=CURDATE(),`lstatus`='accepted' WHERE eid=10501;")
+			print cursor;
 			conn.commit()
+		elif request.form['submit'] =='apply':
+			cursor.execute("insert ")
+
+
 			print(cursor._executed)
 
 			
@@ -72,6 +71,7 @@ def Authenticate():
 		global password
 		global cursor
 		global conn
+		global eid
 		conn=mysql.connect
 		cursor = mysql.connect.cursor()
 		username = request.form['username']
@@ -84,17 +84,9 @@ def Authenticate():
 		#print(username)
 		cursor.execute("SELECT hashkey FROM auth_cont WHERE pass=%s",request.form['password'])
 		data_pass = cursor.fetchall()
-		#if request.method == 'POST':
-		'''for key,value in enumerate(data_user):
-			if value == username:
-				pos_user = key
-		for key,value in enumerate(data_pass):
-			if value == password:
-				pos_pass = key
-		if pos_user == pos_pass:
-			return redirect(url_for('home'))
-		else:
-			error = "Invalid User Name or Password"  '''
+
+		cursor.execute("SELECT eid FROM employee INNER JOIN auth_cont ON ename=%s;",username)
+		eid = cursor.fetchone()
 		if data_user==data_pass and data_pass!=() and data_user!=() :
 			session['hashkey']=data_user
 			return redirect(url_for('home'))
