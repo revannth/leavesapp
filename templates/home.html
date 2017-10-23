@@ -11,6 +11,54 @@
 	{% endif %}
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" href="static/staff_page.css">
+	<style type="text/css">
+
+	table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+	table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+    ext-align: left;
+}
+
+
+	td {
+    height: 50px;
+    vertical-align: bottom;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+		
+		table, th, td {
+   border: 1px solid black;
+   height: 5px;
+   padding: 5px;
+   text-align: left;
+   
+
+}
+
+tr:hover {background-color: #f5f5f5}
+
+div.logout{
+	padding-top: 100px;
+
+}
+</style>
 </head>
 <body>
 <div>
@@ -24,13 +72,7 @@
 <form method="POST">	
 	<button name ='submit' type="submit" value="show">Click to check the status</button>
 </form> 
-	<table>
-		<tr>
-			<th>Type of leave</th>
-			<th>Apply Date</th>
-			<th>Number of Days</th>
-		</tr>
-		</table>
+	
 
 		<!--	{% for row in l_applied: %}
 			<tr>
@@ -43,16 +85,35 @@
 
 			<td><button name='submit' type="submit" value="change">Approve</button></td> 
 			</tr> -->
+			<table>
+		<tr>
+			<th>Name</th>
+			<th>Leave type</th>
+			<th>Date</th>
+			<th>Number of Days</th>
+		</tr>
+
 		
 		<form method="POST">
 			
 			<input type='hidden' name='eid' value='{{row[0]}}'>	
+
+		<tr>
+
+			<th>{{ row[1]}}</th>
+			<th>{{ row[2]}}</th>
+			<th>{{ row[3]}}</th>
+			<th>{{ row[4]}}</th>
+			<th><button type="submit" name="submit" value="accept"> accept</button></th>
+			<th><button type="submit" name="submit" value=" reject"> reject</button></th>  
+		</tr>
+		
 				
-			{{ row[1]}}-{{ row[2]}}-{{ row[3]}}{{ row[4]}}
 			
-			<button type="submit" name="submit" value="accept"> accept</button>
-			<button type="submit" name="submit" value=" reject"> reject</button>
+			
+			
 		</form> 
+		</table>
 		
 			
 			<!--{% endfor %}
@@ -87,11 +148,13 @@
 		</div>
 	</div>
 
-{% endif %}
+<!--{% endif %}-->
 
+<div class="logout">
 <form method='POST'>
 	<button type="submit" name='submit' value='logout'> <b> Logout</b> 
 	</button>
 </form>
+</div>
 </body>
 </html>
