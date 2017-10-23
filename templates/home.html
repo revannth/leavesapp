@@ -25,28 +25,47 @@
 {% if type =="hod":%}
 <form method="POST">	
 	<button name ='submit' type="submit" value="show">Click to check the status</button>
-
+<!--</form> -->
 	<table>
 		<tr>
 			<th>Type of leave</th>
 			<th>Apply Date</th>
 			<th>Number of Days</th>
 		</tr>
-		
+			
 			{% for row in l_applied: %}
 			<tr>
+				<input type='hidden' name='eid' value='{{row[0]}}'>	
 				{%for elem in row:%}
 					<td>{{elem}}</td>
+
 				{% endfor %}
-			<td><button name='submit' type="submit" value="change">Approve</button></td>
-			</tr>
+
+
+			<td><button name='submit' type="submit" value="change">Approve</button></td> 
+		
+		<!--<form method="POST">
+			<input type='hidden' name='eid' value='{{row[0]}}'>	
+				
+			{{ row[1]}}-{{ row[2]}}-{{ row[3]}}{{ row[4]}}
+
+
+
+			<button type="submit" name="submit" value="accept"> accept</button>
+			<button type="submit" name="reject" value=" reject"> reject</button>
+
+
+
+		</form> -->
+		</tr> 
+			
 			{% endfor %}
 			
 			
 		
 	</table>
 	
-</form>
+ </form>
 </div>
 {% endif %}
 {%if type=="staff" :%}
@@ -56,7 +75,7 @@
 	</div>
 	<div class="container">
 		<div class="form">
-			<form>
+			<form method="POST">
 				Type of Leave:<select name="leave">
   						<option value="e_l">Earned Leave</option>
   						<option value="c_l">Casual</option>
@@ -65,10 +84,10 @@
   						<option value="e_o_l">Extra-ordinary Leave</option>
   						<option value="o_d">On-Duty</option>
 						</select><br>
-				Number of Leaves:<input type="number" name="number" ><br>
+				Number of Leaves:<input type="number" name="days" ><br>
 				Reason:<input type="text" name="reason"><br>
 				Start Date:<input type="date" name="date"><br>
-				<input type="button" name="button" value="apply">
+				<input type="submit" name="submit" value="apply">
 			</form>
 		</div>
 	</div>

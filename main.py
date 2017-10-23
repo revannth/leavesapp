@@ -42,19 +42,25 @@ def home():
 			session['hashkey']=-1;
 			return redirect(url_for('Authenticate'));
 		elif request.form['submit'] == 'show':
-			cursor.execute("SELECT ltype,appdate,no_of_days FROM leaves")
+			cursor.execute("SELECT eid,ename,ltype,appdate,no_of_days FROM leaves natural JOIN employee WHERE lstatus='applied' ")
 			temp_applied = cursor.fetchall()
 			l_applied =[list(x) for x in temp_applied]
+			print(l_applied)
 		elif request.form['submit'] == 'change':
 			cursor.execute("UPDATE leaves SET `approveddate`=CURDATE(),`lstatus`='accepted' WHERE eid=10501;")
 			print cursor;
 			conn.commit()
 		elif request.form['submit'] =='apply':
-			cursor.execute("insert ")
-
+			#print("insert into leaves(`eid`,`ltype`,`rforleave`,`appdate`,`no_of_days`) values("+str(eid[0])+",'"+request.form['leave']+"','"+ request.form['reason']+"','"+request.form['date']+"',"+str(request.form['days'])+")");
+			cursor.execute("insert into leaves(`eid`,`ltype`,`rforleave`,`appdate`,`no_of_days`) values("+str(eid[0])+",'"+request.form['leave']+"','"+ request.form['reason']+"','"+request.form['date']+"',"+str(request.form['days'])+")");
+			#cursor.execute("insert into leaves(`eid`,`ltype`,`no_of_days`) values(10507,'c_l',4)")
+			conn.commit()
 
 			print(cursor._executed)
-
+		elif request.form['submit']=='change':
+			cursor.execute("UPDATE leaves SET `approveddate`=CURDATE(),`lstatus`='accepted' WHERE eid="+str(request.form['eid']))
+			conn.commit()
+			
 			
 	return render_template('home.html',username=username,type=type,l_applied=l_applied)
 
