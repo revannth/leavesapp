@@ -4,26 +4,10 @@ import os
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
+SECRET_KEY = os.environ['SECRET_KEY']
+SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+WTF_CSRF_ENABLED = True
 
-class Config:
-	SECRET_KEY = os.environ.get('SECRET_KEY')
-	SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-	WTF_CSRF_ENABLED = True
-	def init_app(app):
-		pass
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'data-test.sqlite')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(BASE_DIR, 'db_repository')
 
-class DevelopmentConfig(Config):
-	DEBUG = True
-	SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'data-dev.sqlite')
-
-class TestingConfig(Config): 
-	TESTING = True
-	SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-	'sqlite:///' + os.path.join(BASE_DIR, 'data-test.sqlite')
-
-config = {
-	'development':DevelopmentConfig,
-	'testing':TestingConfig,
-	'default':DevelopmentConfig
-
-}
